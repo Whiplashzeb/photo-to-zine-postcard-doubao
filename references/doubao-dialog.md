@@ -44,6 +44,7 @@ Count and verify the visible result, not the assistant's description:
 - one clearly visible, unframed ink-and-thin-wash annotation at lower-right
 - one metadata block at lower-left
 - exactly three pigment dabs in one horizontal row
+- no unrequested caption or invented text
 - no mockup, rounded card, tape, second framed picture, duplicate text, or extra swatches
 
 If all six checks pass, continue to the back. Otherwise send one correction prompt while the previous image remains in the conversation.
@@ -58,6 +59,9 @@ List only the failed items. Use this tested correction structure and delete any 
 1. 删除右下插画外面的任何矩形边框和第二张图片感。把它改成无边框、轮廓断续、直接消失在纸面上的“[MAIN_MOTIF]”冷灰细墨线＋透明薄水彩观察笔记，仍位于右下方并清晰可见。
 2. 左下方现在有 [ACTUAL_COUNT] 个色点，删除多余色点；最终必须恰好只有 3 个，单独一行横向排列，依次为 [CHROMATIC]、[STRUCTURAL]、[QUIET]，不要第二行。
 3. 在左下色点上方补回唯一一组小号书籍衬线体档案文字：[TITLE]；下一行斜体 Postcard；LOCATION [LOCATION_OR_BLANK]；DATE [DATE_OR_BLANK]；No. [INDEX]。不要出现任何其他文字。
+4. 删除档案区以外擅自增加的说明文字、中文句子、标题或标签。画面中只能保留第 3 项列出的文字。
+5. 如果右下插画只有空线稿，在现有轮廓内部增加非常克制、透明、偏干的 [CHROMATIC] 与 [QUIET] 水彩薄涂，同时保留大量纸白；不要改变轮廓、位置或无边框状态。
+6. 如果整张成品带圆角、外部背景、阴影或悬浮卡片感，改为四个直角的 2:3 象牙白纸张平面铺满画面。
 
 绝对不要改变上方真实照片、2:3 比例、象牙白纸张和中部大面积留白。直接输出修正后的单张正面。
 ```
