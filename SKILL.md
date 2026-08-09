@@ -10,9 +10,9 @@ description: Convert one user-provided photograph into a 2:3 editorial photo-zin
 Determine which surface is available before generating:
 
 - **Work Task / installed skill:** follow the complete workflow in this file.
-- **Ordinary chat with Image Generation:** read and follow [`references/doubao-dialog.md`](references/doubao-dialog.md). Use its single-pass prompt instead of pasting this entire file into the image prompt.
+- **Ordinary chat with Image Generation:** read and follow [`references/doubao-dialog.md`](references/doubao-dialog.md). Test its link-free GitHub discovery launcher first; use its direct single-pass prompt only as the fallback.
 
-Do not rely on Image Generation mode to browse a GitHub URL or install a skill. In ordinary chat, explicitly select `图像生成`, `Seedream 4.5`, and `2:3`, upload the source image, and send the compact prompts from the dialogue reference. A repository link may be shared for provenance, but it is not a substitute for the prompt text.
+Do not assume Image Generation mode can browse GitHub. Verify that capability with the short discovery launcher instead of hiding the full prompt in the same message. If discovery fails, switch the published user instructions to the direct universal prompt. In either path, explicitly select `图像生成`, `Seedream 4.5`, and `2:3`, upload one source image, send one unchanged prompt, and expect one final front.
 
 ## Creative target
 
