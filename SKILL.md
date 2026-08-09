@@ -5,6 +5,15 @@ description: Convert one user-provided photograph into a coordinated two-sided 2
 
 # Photo to Zine Postcard — Doubao Edition
 
+## Choose the Doubao surface first
+
+Determine which surface is available before generating:
+
+- **Work Task / installed skill:** follow the complete workflow in this file.
+- **Ordinary chat with Image Generation:** read and follow [`references/doubao-dialog.md`](references/doubao-dialog.md). Use its two-pass prompt workflow instead of pasting this entire file into the image prompt.
+
+Do not rely on Image Generation mode to browse a GitHub URL or install a skill. In ordinary chat, explicitly select `图像生成`, `Seedream 4.5`, and `2:3`, upload the source image, and send the compact prompts from the dialogue reference. A repository link may be shared for provenance, but it is not a substitute for the prompt text.
+
 ## Creative target
 
 Create an **independent photo-zine page that can function as a postcard**.
@@ -220,7 +229,9 @@ Inspect the actual generated image. Regenerate the front when any item fails:
 - source photo was changed, repainted, replaced, or heavily cropped
 - photo looks like a Polaroid, scrapbook, or floating card
 - negative space is missing or filled
+- the lower-right visual annotation is missing, too faint to read, or materially smaller than specified
 - illustration looks like a second complete painting instead of an annotation
+- illustration sits inside a visible rectangle, frame, card, or second image boundary
 - illustration colors do not match the source relationships
 - swatch count is not exactly three
 - swatches look like UI components rather than pigment dabs
