@@ -47,7 +47,7 @@ Count and verify the visible result, not the assistant's description:
 - no unrequested caption or invented text
 - no mockup, rounded card, tape, second framed picture, duplicate text, or extra swatches
 
-If all six checks pass, continue to the back. Otherwise send one correction prompt while the previous image remains in the conversation.
+If all checks pass, deliver the front and stop. Otherwise send one correction prompt while the previous image remains in the conversation.
 
 ## 4. Apply one targeted correction pass
 
@@ -66,18 +66,4 @@ List only the failed items. Use this tested correction structure and delete any 
 绝对不要改变上方真实照片、2:3 比例、象牙白纸张和中部大面积留白。直接输出修正后的单张正面。
 ```
 
-Do not run more than two correction passes. When a correction regresses a previously passing element, name that regression explicitly in the next prompt.
-
-## 5. Generate the back only after the front passes
-
-Keep `图像生成`, `Seedream 4.5`, and `2:3` selected. Start a separate image generation and use:
-
-```text
-生成一张与上一张正面配套、但完全独立的 2:3 竖版明信片背面。中性暖象牙白无涂布纸，平面成品，没有样机、圆角外卡片或阴影。
-
-结构固定：内缩极细灰褐外边框；左上角小号宽字距衬线体 POST CARD；中央偏右一条竖向分隔线；右上角一个细线邮票框，框内小字 PLACE / STAMP / HERE；右侧恰好四条地址横线；左侧保留完整大面积书写空间。左下角只出现一次 No. [INDEX]，并加入来自正面“[MAIN_MOTIF]”的极淡细线稿水印，透明度约 4%–7%。
-
-禁止色点、调色板、拼贴、完整插画、额外横向分割线、重复编号、重复 POST CARD 和大面积水印。只输出一张背面图片。
-```
-
-Verify that the back is a second distinct image with one divider, one stamp box, exactly four address lines, and one index before reporting completion.
+Do not run more than two correction passes. When a correction regresses a previously passing element, name that regression explicitly in the next prompt. Deliver the single finished front and do not generate a back.

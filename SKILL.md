@@ -1,6 +1,6 @@
 ---
 name: photo-to-zine-postcard-doubao
-description: Convert one user-provided photograph into a coordinated two-sided 2:3 editorial photo-zine postcard in Doubao Work Task mode. Use when the user asks for a Zine postcard, photo-to-postcard transformation, a minimal collectible travel print, or front-and-back postcard generation from a photo. Preserve the source photograph, create one restrained ink-and-wash visual annotation, extract exactly three source-faithful pigment swatches, and verify both deliverables before claiming completion.
+description: Convert one user-provided photograph into a 2:3 editorial photo-zine postcard front in Doubao. Use when the user asks for a Zine postcard, photo-to-postcard transformation, or a minimal collectible photo print generated in Work Task or ordinary Image Generation chat. Preserve the source photograph, create one restrained ink-and-wash visual annotation, extract exactly three source-faithful pigment swatches, and verify the finished front before claiming completion.
 ---
 
 # Photo to Zine Postcard — Doubao Edition
@@ -29,7 +29,6 @@ Treat the following priorities as immutable, in this order:
 5. restrained ink-and-wash annotation
 6. exactly three pigment swatches
 7. minimal typography used once
-8. separate functional back
 
 If a lower-priority choice conflicts with a higher-priority rule, keep the higher-priority rule.
 
@@ -39,22 +38,18 @@ Before generating, inspect these assets visually:
 
 - `assets/reference-front-alpine.png`
 - `assets/reference-front-misty.png`
-- `assets/reference-back.png`
 
-Use them only for layout, negative space, typography scale, illustration restraint, swatch treatment, paper tone, and back structure. Do not copy their subject matter, titles, numbers, or colors into the new card.
+Use them only for layout, negative space, typography scale, illustration restraint, swatch treatment, and paper tone. Do not copy their subject matter, titles, numbers, or colors into the new card.
 
 If the generation tool accepts multiple reference images, provide the user's source photo as the content reference and the most relevant asset as the style reference. Keep the source photo authoritative for subject and color. If multiple-image reference is unavailable, translate the rules below into the generation prompt explicitly.
 
 ## Output contract
 
-Produce exactly two separate portrait images:
-
-1. `front` — photo-zine editorial face
-2. `back` — functional postcard back
+Produce exactly one portrait image: `front` — the finished photo-zine editorial face.
 
 Use a `2:3` portrait ratio. Prefer `2048 × 3072` when supported.
 
-Generate and verify the front first. Generate and verify the back second. Never claim that both are complete unless two distinct finished images are visible and attached. If only one image exists, say which image is missing and generate it.
+Never claim completion unless one finished front image is visible and passes the front verification checklist.
 
 ## Step 1 — Analyze the source
 
@@ -240,44 +235,4 @@ Inspect the actual generated image. Regenerate the front when any item fails:
 
 Attempt up to two targeted regenerations. In a correction prompt, name only the failed rules and say that all passing parts must remain unchanged.
 
-## Step 9 — Generate the back separately
-
-After the front passes, generate a new separate image using this structure:
-
-- same `2:3` ratio and neutral ivory paper
-- one hairline outer border inset from the edge
-- `POST CARD` in small widely spaced serif capitals at upper-left
-- one thin vertical divider slightly right of center
-- one thin rectangular stamp box at upper-right with small `PLACE / STAMP / HERE`
-- exactly four thin address lines on the right
-- large completely blank writing area on the left
-- one source-derived line-art watermark at lower-left at `4%–7%` opacity
-- the same `No. 0XX` index once at lower-left
-
-Do not add swatches, palettes, collage, illustration blocks, extra horizontal dividers, duplicate indices, or decoration that reduces writing space.
-
-Use this prompt skeleton:
-
-```text
-生成一张独立的 2:3 竖版明信片背面，必须是与正面分开的第二张图片。沿用正面的中性暖象牙白无涂布纸张和极细灰褐线条，整体平面、克制、没有样机和阴影。
-
-结构固定：内缩极细外边框；左上角小号宽字距衬线体“POST CARD”；中央偏右一条竖向分隔线；右上角一个细线邮票框，框内小字 PLACE / STAMP / HERE；右侧恰好四条地址横线；左侧保留完整大面积书写空间。
-
-左下角只放一次 No. [INDEX]，并加入一个来自正面主元素“[MAIN_MOTIF]”的极淡线稿水印，透明度约 4%–7%，只能位于左下区域，不影响书写。
-
-禁止色块、调色板、拼贴、完整插画、额外横向分割线、重复编号、重复 POST CARD、装饰图标和大面积水印。
-```
-
-## Step 10 — Verify delivery
-
-Before the final response, confirm visually:
-
-- two distinct images exist
-- both are portrait `2:3`
-- the first is the front and contains the unchanged source photo
-- the second is the functional back
-- front has exactly three swatches
-- front metadata appears once
-- back has one divider, one stamp box, four address lines, and one index
-
-Report completion only after every item passes. Mention any unavoidable model or tool limitation plainly rather than describing an image that does not exist.
+After the front passes, deliver that single image and stop. Mention any unavoidable model or tool limitation plainly rather than describing an image that does not exist.
