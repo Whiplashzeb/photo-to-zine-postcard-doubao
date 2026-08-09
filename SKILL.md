@@ -207,13 +207,13 @@ Use this prompt skeleton and replace every bracketed value:
 
 照片下方保留约 16% 画面高度的连续象牙白留白，绝对不要填充装饰。
 
-下半部左侧是唯一一组极简档案文字；右侧是从原照片提取的“[MAIN_MOTIF]”视觉注释。视觉注释不是完整风景画：使用细冷灰墨线控制结构，叠加透明、克制、偏干的水彩薄涂；轮廓断续，边缘自然消失在纸面，内部保留大量纸白，像独立摄影杂志中的手绘观察笔记。保持原照片真实轮廓和色彩关系，整体轻、薄、安静、低饱和。禁止厚重水彩、油画感、数字插画感、完整矩形画布、黑粗线和高饱和。
+下半部左侧是唯一一组极简档案文字；右侧是从原照片提取的“[MAIN_MOTIF]”视觉注释。视觉注释不是完整风景画：使用细冷灰墨线控制结构，叠加透明、克制、偏干的水彩薄涂；轮廓断续，边缘自然消失在纸面，内部保留大量纸白，像独立摄影杂志中的手绘观察笔记。保持原照片真实轮廓和色彩关系，整体轻、薄、安静、低饱和。下半部不画矩形边框，不画包围插画或文字的线框，不画左右分隔竖线或上下分隔横线；唯一允许的直线只有照片极细边线以及 LOCATION、DATE 后各一条短横线。
 
 颜色只允许围绕原照片提取的三个色系：[CHROMATIC]、[STRUCTURAL]、[QUIET]。不得自行增加互补色或改变冷暖关系。
 
-左下方只出现一行三个小型颜料试色点，顺序为 [CHROMATIC]、[STRUCTURAL]、[QUIET]。必须恰好三个，大小一致、间距均匀、哑光、边缘略有手工颜料的不规则感；禁止 UI 色块、长条色卡、渐变和第四个颜色。
+左下方优先只出现一行三个小型颜料试色点，顺序为 [CHROMATIC]、[STRUCTURAL]、[QUIET]。大小一致、间距均匀、哑光、边缘略有手工颜料的不规则感；不要 UI 色块、长条色卡或第二行色点。
 
-文字只允许出现一次：标题“[TITLE]”、斜体“Postcard”、LOCATION、DATE、No. [INDEX]。LOCATION 和 DATE 未提供内容时只保留标签和细横线。禁止重复标题、重复字段、说明文字、关键词、坐标、徽章或装饰标签。
+文字严格只有五项且各出现一次：标题“[TITLE]”、斜体“Postcard”、LOCATION 与空白短横线、DATE 与空白短横线、No. [INDEX]。第 5 项之后不再出现任何编号或文字。
 
 纸张为中性暖象牙白，只有极轻微的无涂布纸纹。整体气质：independent photography zine、editorial archive、Swiss/Japanese book design、quiet collectible print、large negative space。
 ```
@@ -229,7 +229,7 @@ Inspect the actual generated image against these failure conditions:
 - illustration looks like a second complete painting instead of an annotation
 - illustration sits inside a visible rectangle, frame, card, or second image boundary
 - illustration colors do not match the source relationships
-- swatch count is not exactly three
+- pigment dabs are missing, split across multiple rows, or use colors unrelated to the source; three are preferred, while a few extra source-related dabs are a minor variance
 - swatches look like UI components rather than pigment dabs
 - metadata is duplicated, invented, or placed more than once
 - added modules, decorations, frames, captions, or logos appear
