@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photo to Zine Postcard · 豆包版"
+  short_description: "为豆包优化的摄影 Zine 明信片正反面生成与校验流程"
+  default_prompt: "使用 $photo-to-zine-postcard-doubao 将这张照片制作成一套极简 Zine 风格明信片。"
