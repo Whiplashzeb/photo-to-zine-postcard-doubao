@@ -10,7 +10,7 @@ description: Convert one user-provided photograph into a 2:3 editorial photo-zin
 Determine which surface is available before generating:
 
 - **Work Task / installed skill:** follow the complete workflow in this file.
-- **Ordinary chat with Image Generation:** read and follow [`references/doubao-dialog.md`](references/doubao-dialog.md). Use its two-pass prompt workflow instead of pasting this entire file into the image prompt.
+- **Ordinary chat with Image Generation:** read and follow [`references/doubao-dialog.md`](references/doubao-dialog.md). Use its single-pass prompt instead of pasting this entire file into the image prompt.
 
 Do not rely on Image Generation mode to browse a GitHub URL or install a skill. In ordinary chat, explicitly select `图像生成`, `Seedream 4.5`, and `2:3`, upload the source image, and send the compact prompts from the dialogue reference. A repository link may be shared for provenance, but it is not a substitute for the prompt text.
 
@@ -34,14 +34,14 @@ If a lower-priority choice conflicts with a higher-priority rule, keep the highe
 
 ## Visual references
 
-Before generating, inspect these assets visually:
+In Work Task or another surface that can load bundled assets, inspect these assets visually:
 
 - `assets/reference-front-alpine.png`
 - `assets/reference-front-misty.png`
 
 Use them only for layout, negative space, typography scale, illustration restraint, swatch treatment, and paper tone. Do not copy their subject matter, titles, numbers, or colors into the new card.
 
-If the generation tool accepts multiple reference images, provide the user's source photo as the content reference and the most relevant asset as the style reference. Keep the source photo authoritative for subject and color. If multiple-image reference is unavailable, translate the rules below into the generation prompt explicitly.
+In ordinary Image Generation chat, upload only the user's photograph by default and translate the rules below into the prompt explicitly. Treat a bundled front asset as an optional development fallback only when repeated no-reference benchmarks fail. If a fallback style image is used, keep the source photo authoritative for subject and color.
 
 ## Output contract
 
@@ -76,6 +76,7 @@ Use one flat, edge-to-edge card canvas. Do not depict a card lying on another ba
 
 - warm neutral ivory, approximately `#F5F1E8`
 - extremely subtle uncoated paper grain
+- the paper extends exactly to all four canvas edges; do not draw a separate card silhouette or outer background
 - no yellow vintage filter
 - no dark vignette, shadow, mockup, or rounded outer corners
 
@@ -219,7 +220,7 @@ Use this prompt skeleton and replace every bracketed value:
 
 ## Step 8 — Verify the front
 
-Inspect the actual generated image. Regenerate the front when any item fails:
+Inspect the actual generated image against these failure conditions:
 
 - source photo was changed, repainted, replaced, or heavily cropped
 - photo looks like a Polaroid, scrapbook, or floating card
@@ -233,6 +234,6 @@ Inspect the actual generated image. Regenerate the front when any item fails:
 - metadata is duplicated, invented, or placed more than once
 - added modules, decorations, frames, captions, or logos appear
 
-Attempt up to two targeted regenerations. In a correction prompt, name only the failed rules and say that all passing parts must remain unchanged.
+Ordinary chat has a one-request, one-output contract. Do not ask the user to send a correction prompt and do not make a second image part of the expected workflow. Put every hard constraint into the first generation prompt. If the visible output still fails, report the failed check plainly for skill iteration rather than claiming success.
 
 After the front passes, deliver that single image and stop. Mention any unavoidable model or tool limitation plainly rather than describing an image that does not exist.

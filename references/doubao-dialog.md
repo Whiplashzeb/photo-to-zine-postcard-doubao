@@ -1,6 +1,6 @@
 # Doubao ordinary-chat workflow
 
-Use this workflow when Work Task skill installation is unavailable or out of quota. It is optimized for Doubao's ordinary `图像生成` mode and intentionally uses two short passes.
+Use this workflow when Work Task skill installation is unavailable or out of quota. It is optimized for Doubao's ordinary `图像生成` mode and has a strict one-request, one-output contract.
 
 ## 1. Configure the chat before prompting
 
@@ -8,34 +8,39 @@ Use this workflow when Work Task skill installation is unavailable or out of quo
 2. Select `图像生成`.
 3. Select `Seedream 4.5` when available.
 4. Set the ratio to `2:3` before sending the prompt.
-5. Upload the user's source photograph.
-6. Optionally upload one layout reference:
-   - use `assets/reference-front-alpine.png` for subjects with clear hard contours
-   - use `assets/reference-front-misty.png` for soft, organic, or atmospheric subjects
+5. Upload only the user's source photograph. Do not require a layout reference in the default workflow.
 
-When two images are uploaded, identify them explicitly in the prompt: image 1 supplies all content and color; image 2 supplies layout, scale, negative space, typography, and print restraint only. Never allow image 2's landscape, title, number, or palette to enter the output.
+The bundled front references are for skill development and benchmarking. Use one only as an optional fallback when repeated no-reference tests fail; never make it part of the standard user instructions.
 
 Do not ask Image Generation mode to read a GitHub link. It does not reliably browse or install skills. Paste the prompt itself.
 
-## 2. Generate the front structure
+## 2. Generate the finished front in one pass
 
-Replace every bracketed value. Keep this first pass focused on the visual hierarchy.
+Replace every bracketed value. Send this once and expect one finished front with no follow-up correction.
 
 ```text
-图1是唯一的内容照片；如果上传了图2，图2只能作为版式和 Zine 气质参考，绝对不要复制图2的景物、标题、编号或颜色。
+用户上传的图片是唯一的内容与颜色来源。不要寻找、假设或引用第二张图。
 
-生成一张单独的 2:3 竖版独立摄影 Zine 明信片正面。整张成品平面铺满画面，不是桌面样机，不要圆角外卡片、阴影、Polaroid、胶带或剪贴簿。
+生成一张单独的 2:3 竖版独立摄影 Zine 明信片正面。以下规则必须在同一张图里全部满足，一轮生成即结束。
 
-上方放置图1的真实照片，占高度约 44%、宽度约 88%，保持摄影质感、真实颜色和原始比例，不重绘、不扩图、不换图，只加极细灰线和窄纸边。照片下方保留约 16% 高度的连续象牙白留白，不放任何装饰。
+1. 象牙白纸张本身就是整张画布，从左上角连续延伸到右下角，四条画布边缘就是纸张边缘；不要在白色背景上再画一张卡片，不要卡片外轮廓。整张成品是四个直角的 2:3 平面；绝对不要圆角、外部背景、桌面样机、阴影、Polaroid、胶带或剪贴簿。
 
-下半部采用独立摄影杂志版式：左侧预留档案文字与色点区域；右侧必须清晰出现从图1提取的“[MAIN_MOTIF]”手绘观察笔记，占卡片宽度约 45%。它没有矩形边框，不是第二张照片，不是完整风景画：使用冷灰细墨线、断续轮廓和透明偏干的水彩薄涂，边缘直接消失在纸面，内部保留纸白，颜色只来自图1并略微降低饱和度。
+2. 上方放置图1的真实照片，占高度约 44%、宽度约 88%，保持摄影质感、真实颜色和原始比例，不重绘、不扩图、不换图，只加极细灰线和窄纸边。
 
-左下档案文字只出现一次：标题“[TITLE]”、斜体 Postcard、LOCATION [LOCATION_OR_BLANK]、DATE [DATE_OR_BLANK]、No. [INDEX]。其下只有一行恰好 3 个小型手绘颜料点，依次为 [CHROMATIC]、[STRUCTURAL]、[QUIET]；三个大小一致、间距均匀、哑光且边缘略不规则。不得出现第四个色点、第二行色点、UI 色块或长条色卡。
+3. 照片下方保留约 16% 高度的连续象牙白留白，完全空白，不放文字、图案或装饰。
 
-纸张为中性暖象牙白，只带极轻微无涂布纸纹。整体气质：independent photography zine、editorial archive、Swiss/Japanese book design、quiet collectible print、large negative space。只输出一张正面图片。
+4. 下半部右侧必须清晰出现从图1提取的“[MAIN_MOTIF]”手绘观察笔记，占卡片宽度约 45%。它没有矩形边框，不是第二张照片，不是完整风景画。使用冷灰细墨线和断续轮廓；轮廓内部必须有清晰可见但非常克制、透明、偏干的 [CHROMATIC] 与 [QUIET] 水彩薄涂，边缘直接消失在纸面，内部仍保留大量纸白。不能只画空线稿。
+
+5. 左下档案文字只出现一次，而且整张图只允许出现这些文字：标题“[TITLE]”、斜体 Postcard、LOCATION [LOCATION_OR_BLANK]、DATE [DATE_OR_BLANK]、No. [INDEX]。禁止中文句子、说明文字、第二标题、标签、坐标和任何其他文字。
+
+6. 档案文字下方只有一行恰好 3 个小型手绘颜料点，依次为 [CHROMATIC]、[STRUCTURAL]、[QUIET]；三个大小一致、间距均匀、哑光且边缘略不规则。不得出现第四个色点、第二行色点、UI 色块或长条色卡。
+
+7. 纸张为中性暖象牙白，只带极轻微无涂布纸纹。整体气质：independent photography zine、editorial archive、Swiss/Japanese book design、quiet collectible print、large negative space。
+
+输出前在内部检查：纸张铺到画布四边且没有卡片外轮廓；四个直角；照片未重绘；中央留白连续；右下无边框且同时有细线与透明薄水彩；左下文字只出现一次；整张图没有其他文字；色点恰好 3 个且只有一行。只输出一张最终正面图片，不解释步骤，不提供第二张图。
 ```
 
-## 3. Inspect before accepting
+## 3. Verify the single result
 
 Count and verify the visible result, not the assistant's description:
 
@@ -47,23 +52,4 @@ Count and verify the visible result, not the assistant's description:
 - no unrequested caption or invented text
 - no mockup, rounded card, tape, second framed picture, duplicate text, or extra swatches
 
-If all checks pass, deliver the front and stop. Otherwise send one correction prompt while the previous image remains in the conversation.
-
-## 4. Apply one targeted correction pass
-
-List only the failed items. Use this tested correction structure and delete any clause that already passes:
-
-```text
-修改上一张已经生成的 2:3 明信片正面，只修正以下失败项，其他合格部分全部保持不变：
-
-1. 删除右下插画外面的任何矩形边框和第二张图片感。把它改成无边框、轮廓断续、直接消失在纸面上的“[MAIN_MOTIF]”冷灰细墨线＋透明薄水彩观察笔记，仍位于右下方并清晰可见。
-2. 左下方现在有 [ACTUAL_COUNT] 个色点，删除多余色点；最终必须恰好只有 3 个，单独一行横向排列，依次为 [CHROMATIC]、[STRUCTURAL]、[QUIET]，不要第二行。
-3. 在左下色点上方补回唯一一组小号书籍衬线体档案文字：[TITLE]；下一行斜体 Postcard；LOCATION [LOCATION_OR_BLANK]；DATE [DATE_OR_BLANK]；No. [INDEX]。不要出现任何其他文字。
-4. 删除档案区以外擅自增加的说明文字、中文句子、标题或标签。画面中只能保留第 3 项列出的文字。
-5. 如果右下插画只有空线稿，在现有轮廓内部增加非常克制、透明、偏干的 [CHROMATIC] 与 [QUIET] 水彩薄涂，同时保留大量纸白；不要改变轮廓、位置或无边框状态。
-6. 如果整张成品带圆角、外部背景、阴影或悬浮卡片感，改为四个直角的 2:3 象牙白纸张平面铺满画面。
-
-绝对不要改变上方真实照片、2:3 比例、象牙白纸张和中部大面积留白。直接输出修正后的单张正面。
-```
-
-Do not run more than two correction passes. When a correction regresses a previously passing element, name that regression explicitly in the next prompt. Deliver the single finished front and do not generate a back.
+If all checks pass, deliver the front and stop. Do not instruct the user to correct or regenerate. If a check fails during development testing, record the failure and improve this one-pass prompt before release.
